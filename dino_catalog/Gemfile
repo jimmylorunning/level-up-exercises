@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
 ruby '1.9.3'
 gem 'debugger'
 gem 'json'
+gem 'rubocop', '~> 0.29.0'
