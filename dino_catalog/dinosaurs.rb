@@ -60,7 +60,7 @@ class Dinosaurs
   end
 
   def from_period(p)
-    find { |dino| dino.period.split.map(&:downcase).include? p.downcase }
+    find { |dino| dino.from_period? p }
   end
 
   def big
@@ -139,6 +139,10 @@ class Dinosaurs
       hash = Hash.new { |h, key| h[key] = send(to_variable(key)) }
       PRINT_ORDER.each { |attr| hash[attr] }
       hash
+    end
+
+    def from_period?(p)
+      period.split.map(&:downcase).include? p.downcase
     end
 
     private
