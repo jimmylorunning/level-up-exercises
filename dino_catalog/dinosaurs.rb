@@ -1,6 +1,4 @@
-# to do : write tests
-# fix bug in from_period
-# move csv stuff out into its own class
+# to do: move csv stuff out into its own class
 
 require 'debugger'
 require 'json'
