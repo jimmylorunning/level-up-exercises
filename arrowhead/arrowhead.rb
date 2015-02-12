@@ -15,16 +15,19 @@ class Arrowhead
     },
   }
 
+  REGION_ERR = "Unknown region, please provide a valid region."
+  SHAPE_ERR = "Unknown shape value. Are you sure you know what you're talking about?"
+
   def self.classify(region, shape)
-    self.prevent_invalid_params(region, shape)
+    prevent_invalid_params(region, shape)
     shapes = self.shapes(region)
     arrowhead = shapes[shape]
     puts "You have a(n) '#{arrowhead}' arrowhead. Probably priceless."
   end
 
   def self.prevent_invalid_params(region, shape)
-    raise "Unknown region, please provide a valid region." unless valid_region? region
-    raise "Unknown shape value. Are you sure you know what you're talking about?" unless valid_shape?(region, shape)
+    raise REGION_ERR unless valid_region? region
+    raise SHAPE_ERR  unless valid_shape?(region, shape)
   end
 
   def self.valid_region?(region)
@@ -40,4 +43,3 @@ class Arrowhead
     CLASSIFICATIONS[region]
   end
 end
-
