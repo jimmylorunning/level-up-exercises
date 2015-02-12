@@ -34,6 +34,11 @@ describe Dinosaurs do
       @d.from_triassic.dinosaurs.map(&:name).must_equal ['Melanorosaurus']
       @d.from_assic.dinosaurs.must_equal []
     end
+
+    it "handles missing period information" do
+      d3 = Dinosaurs.new('three.csv')
+      d3.from_jurassic.dinosaurs.map(&:name).must_equal [] 
+    end
   end
 
   describe "big" do

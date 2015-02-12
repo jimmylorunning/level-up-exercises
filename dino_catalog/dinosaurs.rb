@@ -60,7 +60,6 @@ class Dinosaurs
   end
 
   def from_period(p)
-    # handle if period == nil
     find { |dino| dino.period.split.map(&:downcase).include? p.downcase }
   end
 
