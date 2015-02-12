@@ -125,7 +125,7 @@ class Dinosaurs
     end
 
     def carnivore?
-      (carnivore.downcase == 'yes') ? true : false
+      carnivore.downcase == 'yes'
     end
 
     def print
