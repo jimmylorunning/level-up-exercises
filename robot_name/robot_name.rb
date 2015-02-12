@@ -17,11 +17,11 @@ class Robot
     raise NameCollisionError, COLLISION_ERR_MSG if name_collides?
   end
 
+  private
+
   def default_name_generator
-    generate_char = -> { ('A'..'Z').to_a.sample }
-    generate_num = -> { rand(10) }
-    "#{generate_char.call}#{generate_char.call}#{generate_num.call}" \
-      "#{generate_num.call}#{generate_num.call}"
+    "#{generate_character}#{generate_character}#{generate_number}" \
+      "#{generate_number}#{generate_number}"
   end
 
   def name_collides?
@@ -30,6 +30,14 @@ class Robot
 
   def register_name
     @@registry << @name
+  end
+
+  def generate_character
+    ('A'..'Z').to_a.sample
+  end
+
+  def generate_number
+    rand(10)
   end
 end
 
