@@ -1,7 +1,6 @@
-# to do: move csv stuff out into its own class
-
 require 'debugger'
 require 'json'
+require 'csv'
 
 class Dinosaurs
   include Enumerable
@@ -32,10 +31,10 @@ class Dinosaurs
   end
 
   def read_from_file(file)
-    lines = File.open(file).readlines
-    keys = lines[0].split(',')
-    lines[1..-1].each do |dinosaur|
-      @dinosaurs << Dinosaur.new(keys.zip(dinosaur.split(',')))
+    csv = CSV.read(file)
+    keys = csv[0]
+    csv[1..-1].each do |dinosaur|
+      @dinosaurs << Dinosaur.new(keys.zip dinosaur)
     end
     self
   end
@@ -140,6 +139,7 @@ class Dinosaurs
     end
 
     def from_period?(p)
+      return false unless period
       period.split.map(&:downcase).include? p.downcase
     end
 
@@ -147,7 +147,7 @@ class Dinosaurs
 
     def assign_attr(attr, value)
       return unless ATTR_CHART[to_attr_key(attr)]
-      send("#{ATTR_CHART[to_attr_key(attr)]}=", rm_trailing_newline(value))
+      send("#{ATTR_CHART[to_attr_key(attr)]}=", value)
     end
 
     def diet=(d)
@@ -160,12 +160,7 @@ class Dinosaurs
     end
 
     def to_attr_key(attr)
-      rm_trailing_newline(attr.upcase)
-    end
-
-    def rm_trailing_newline(attr)
-      return attr[0..-2] if attr[-1] == "\n"
-      attr
+      attr.upcase
     end
   end
 end
