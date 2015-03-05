@@ -11,7 +11,7 @@ describe Dinosaurs do
       @d.dinosaurs.map(&:name).must_equal ["Albertosaurus", "Albertonykus", "Baryonyx", "Deinonychus", "Diplocaulus", "Megalosaurus", "Giganotosaurus", "Quetzalcoatlus", "Yangchuanosaurus", "Dracopelta", "Abrictosaurus", "Afrovenator", "Carcharodontosaurus", "Giraffatitan", "Paralititan", "Suchomimus", "Melanorosaurus"]
     end
   end
-  
+
   describe "bipeds" do
     it "returns only the bipeds" do
       @d.bipeds.must_be_instance_of Dinosaurs
@@ -37,7 +37,7 @@ describe Dinosaurs do
 
     it "handles missing period information" do
       d3 = Dinosaurs.new('three.csv')
-      d3.from_jurassic.dinosaurs.map(&:name).must_equal [] 
+      d3.from_jurassic.dinosaurs.map(&:name).must_equal []
     end
   end
 
@@ -85,7 +85,7 @@ describe Dinosaurs do
 
   describe "json" do
     it "returns the correct json" do
-      @d.big.json.must_equal "[{\"Name\":\"Baryonyx\",\"Period\":\"Early Cretaceous\",\"Continent\":\"Europe\",\"Diet\":\"Piscivore\",\"Carnivore\":\"Yes\",\"Weight in lbs\":\"6000\",\"Walking\":\"Biped\",\"Description\":\"One of the only known dinosaurs with a fish-only diet.\"},{\"Name\":\"Giganotosaurus\",\"Period\":\"Late Cretaceous\",\"Continent\":\"South America\",\"Diet\":\"Carnivore\",\"Carnivore\":\"Yes\",\"Weight in lbs\":\"30420\",\"Walking\":\"Biped\",\"Description\":\"Largest hunter and also the coolest ever.\"},{\"Name\":\"Yangchuanosaurus\",\"Period\":\"Oxfordian\",\"Continent\":\"Asia\",\"Diet\":\"Carnivore\",\"Carnivore\":\"Yes\",\"Weight in lbs\":\"7200\",\"Walking\":\"Biped\",\"Description\":\"\"},{\"Name\":\"Giraffatitan\",\"Period\":\"Jurassic\",\"Continent\":null,\"Diet\":null,\"Carnivore\":\"No\",\"Weight in lbs\":\"6600\",\"Walking\":\"Quadruped\",\"Description\":null},{\"Name\":\"Paralititan\",\"Period\":\"Cretaceous\",\"Continent\":null,\"Diet\":null,\"Carnivore\":\"No\",\"Weight in lbs\":\"120000\",\"Walking\":\"Quadruped\",\"Description\":null},{\"Name\":\"Suchomimus\",\"Period\":\"Cretaceous\",\"Continent\":null,\"Diet\":null,\"Carnivore\":\"Yes\",\"Weight in lbs\":\"10400\",\"Walking\":\"Biped\",\"Description\":null}]"
+      @d.big.json.must_equal "[{\"Name\":\"Baryonyx\",\"Period\":\"Early Cretaceous\",\"Continent\":\"Europe\",\"Diet\":\"Piscivore\",\"Carnivore\":\"Yes\",\"Weight in lbs\":\"6000\",\"Walking\":\"Biped\",\"Description\":\"One of the only known dinosaurs with a fish-only diet.\"},{\"Name\":\"Giganotosaurus\",\"Period\":\"Late Cretaceous\",\"Continent\":\"South America\",\"Diet\":\"Carnivore\",\"Carnivore\":\"Yes\",\"Weight in lbs\":\"30420\",\"Walking\":\"Biped\",\"Description\":\"Largest hunter and also the coolest ever.\"},{\"Name\":\"Yangchuanosaurus\",\"Period\":\"Oxfordian\",\"Continent\":\"Asia\",\"Diet\":\"Carnivore\",\"Carnivore\":\"Yes\",\"Weight in lbs\":\"7200\",\"Walking\":\"Biped\",\"Description\":null},{\"Name\":\"Giraffatitan\",\"Period\":\"Jurassic\",\"Continent\":null,\"Diet\":null,\"Carnivore\":\"No\",\"Weight in lbs\":\"6600\",\"Walking\":\"Quadruped\",\"Description\":null},{\"Name\":\"Paralititan\",\"Period\":\"Cretaceous\",\"Continent\":null,\"Diet\":null,\"Carnivore\":\"No\",\"Weight in lbs\":\"120000\",\"Walking\":\"Quadruped\",\"Description\":null},{\"Name\":\"Suchomimus\",\"Period\":\"Cretaceous\",\"Continent\":null,\"Diet\":null,\"Carnivore\":\"Yes\",\"Weight in lbs\":\"10400\",\"Walking\":\"Biped\",\"Description\":null}]"
     end
   end
 
